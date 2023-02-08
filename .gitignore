@@ -36,3 +36,4 @@
 .env.production.local
 
 /helpers
+package-lock.json

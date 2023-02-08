@@ -1,10 +1,10 @@
 import React from "react";
 
-export const InputCheckbox = () => {
+export const InputCheckbox = (props) => {
   return (
     <label>
       <input type="checkbox" />
-      Wybór
+      {props.children}
     </label>
   );
 };

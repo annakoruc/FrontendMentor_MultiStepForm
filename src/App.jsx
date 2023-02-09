@@ -18,16 +18,18 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Container>
-        <Layout />
-        <Routes>
-          <Route exact path={paths.home} element={<FirstStep />} />
-          <Route exact path={paths.first} element={<FirstStep />} />
-          <Route exact path={paths.secound} element={<SecoundStep />} />
-          <Route exact path={paths.third} element={<ThirdStep />} />
-          <Route exact path={paths.fourth} element={<FourthStep />} />
-        </Routes>
-      </Container>
+
+      <Layout>
+        <Container>
+          <Routes>
+            <Route exact path={paths.home} element={<FirstStep />} />
+            <Route exact path={paths.first} element={<FirstStep />} />
+            <Route exact path={paths.secound} element={<SecoundStep />} />
+            <Route exact path={paths.third} element={<ThirdStep />} />
+            <Route exact path={paths.fourth} element={<FourthStep />} />
+          </Routes>
+        </Container>
+      </Layout>
     </ThemeProvider>
   );
 };

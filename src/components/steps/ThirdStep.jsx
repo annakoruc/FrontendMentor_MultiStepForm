@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../config/paths";
 import { InputCheckbox } from "../UI";
 
-export const ThirdStep = () => {
+export const ThirdStep = (props) => {
+  useEffect(() => {
+    props.stepTitle(
+      "Pick add-ons",
+      "Add-ons help enhance your gaming experience.",
+      paths.fourth
+    );
+  }, []);
   return (
     <>
-      <h1>Pick add-ons</h1>
-      <h2>Add-ons help enhance your gaming experience.</h2>
       <InputCheckbox>Online service</InputCheckbox>
       <InputCheckbox>Larger storage</InputCheckbox>
       <InputCheckbox>Customizable profile</InputCheckbox>
-      <Link to={paths.fourth}>Next Step</Link>
     </>
   );
 };

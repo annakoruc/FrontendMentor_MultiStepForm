@@ -19,7 +19,27 @@ body {
 }
 
 h1 {
+  font-size: 30px;
   color: ${({ theme }) => theme.colors.primary.marineBlue}
+}
+
+button, a {
+  background: ${({ theme }) => theme.colors.primary.marineBlue};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  border: none;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  align-self: flex-end;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary.purpliskBlue};
+  }
 }
 `;
 

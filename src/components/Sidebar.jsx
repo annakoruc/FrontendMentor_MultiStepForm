@@ -1,6 +1,6 @@
 import React from "react";
 import { SideBarElement } from "./UI";
-import { SidebarStyle } from "../styles/UI";
+import { SidebarStyle } from "../styles";
 
 export const Sidebar = () => {
   return (

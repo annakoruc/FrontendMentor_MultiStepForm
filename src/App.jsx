@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { Layout } from "./components";
+import { Layout, Container } from "./components";
 import {
   FirstStep,
   SecoundStep,
@@ -11,22 +11,51 @@ import {
 } from "./components/steps";
 import { paths } from "./config/paths";
 
-import { Container } from "./styles";
 import { GlobalStyles, theme } from "./styles/Global";
 
 const App = () => {
+  const [stepTitle, setStepTitile] = useState({});
+
+  const stepTitleHandler = (title, text, path) => {
+    setStepTitile({ title: title, text: text, path: path });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
 
       <Layout>
-        <Container>
+        <Container
+          title={stepTitle.title}
+          text={stepTitle.text}
+          path={stepTitle.path}
+        >
           <Routes>
-            <Route exact path={paths.home} element={<FirstStep />} />
-            <Route exact path={paths.first} element={<FirstStep />} />
-            <Route exact path={paths.secound} element={<SecoundStep />} />
-            <Route exact path={paths.third} element={<ThirdStep />} />
-            <Route exact path={paths.fourth} element={<FourthStep />} />
+            <Route
+              exact
+              path={paths.home}
+              element={<FirstStep stepTitle={stepTitleHandler} />}
+            />
+            <Route
+              exact
+              path={paths.first}
+              element={<FirstStep stepTitle={stepTitleHandler} />}
+            />
+            <Route
+              exact
+              path={paths.secound}
+              element={<SecoundStep stepTitle={stepTitleHandler} />}
+            />
+            <Route
+              exact
+              path={paths.third}
+              element={<ThirdStep stepTitle={stepTitleHandler} />}
+            />
+            <Route
+              exact
+              path={paths.fourth}
+              element={<FourthStep stepTitle={stepTitleHandler} />}
+            />
           </Routes>
         </Container>
       </Layout>

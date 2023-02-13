@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { ResultCard } from "../ResultCard";
 
-export const FourthStep = () => {
+export const FourthStep = (props) => {
+  useEffect(() => {
+    props.stepTitle(
+      "Finishing upPick add-ons",
+      "Double-check everything looks OK before confirming.Add-ons help enhance your gaming experience."
+    );
+  }, []);
+
   return (
-    <>
-      <h1>Finishing up</h1>
-      <h2>Double-check everything looks OK before confirming.</h2>
+    <div>
+      <ResultCard />
       <button type="submit">Confirm</button>
-    </>
+    </div>
   );
 };

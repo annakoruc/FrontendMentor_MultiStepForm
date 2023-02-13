@@ -4,7 +4,8 @@ export const InputStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  padding: 1em;
+  margin-bottom: 1em;
+  width: 100%;
 
   input {
     background: ${({ theme }) => theme.colors.white};
@@ -22,6 +23,6 @@ export const InputStyle = styled.div`
 
   label {
     color: ${({ theme }) => theme.colors.primary.marineBlue};
-    font-weight: bold;
+    font-weight: medium;
   }
 `;

@@ -31,7 +31,7 @@ export const StepInSidebar = styled.div`
 
   h3 {
     font-weight: medium;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   nav {

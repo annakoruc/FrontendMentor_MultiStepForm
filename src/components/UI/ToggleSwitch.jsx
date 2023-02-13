@@ -1,10 +1,11 @@
 import React from "react";
+import { ToggleSwitchStyle } from "../../styles/UI";
 
-export const ToggleSwitch = () => {
+export const ToggleSwitch = (props) => {
   return (
-    <label>
-      <input type="checkbox" />
-      Toggle Switch
-    </label>
+    <ToggleSwitchStyle>
+      <input type="checkbox" onChange={props.onChange} />
+      <span />
+    </ToggleSwitchStyle>
   );
 };

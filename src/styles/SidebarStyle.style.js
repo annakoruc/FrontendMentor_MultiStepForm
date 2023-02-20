@@ -12,6 +12,3 @@ export const SidebarStyle = styled.div`
   flex-direction: column;
   padding: 1em;
 `;
-
-// width = "274";
-// height = "568";

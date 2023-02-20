@@ -14,7 +14,7 @@ export const FirstStep = (props) => {
   }, []);
 
   return (
-    <div>
+    <main>
       <Input id="name" placeholder="e.g. Stephen King">
         Name
       </Input>
@@ -24,6 +24,6 @@ export const FirstStep = (props) => {
       <Input id="phone" placeholder="e.g. +1 234 567 890">
         Phone Number
       </Input>
-    </div>
+    </main>
   );
 };

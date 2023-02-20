@@ -41,6 +41,7 @@ export const ThirdStep = (props) => {
     <ThirdStepStyle>
       {addOnsList.map((element) => (
         <InputCheckbox
+          key={element.title}
           text={element.text}
           cost={
             isMonthy ? `+$${element.costMonth}/mo` : `+$${element.costYear}/yr`

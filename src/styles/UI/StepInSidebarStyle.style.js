@@ -17,11 +17,11 @@ export const StepInSidebar = styled.div`
     text-align: center;
     font-weight: bold;
 
-    &:active {
-      border: none;
-      background: ${({ theme }) => theme.colors.primary.lightBlue};
-      color: ${({ theme }) => theme.colors.primary.marineBlue};
-    }
+    // &:active {
+    //   border: none;
+    //   background: ${({ theme }) => theme.colors.primary.lightBlue};
+    //   color: ${({ theme }) => theme.colors.primary.marineBlue};
+    // }
   }
 
   p {
@@ -38,5 +38,11 @@ export const StepInSidebar = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+  }
+
+  .active {
+    border: none;
+    background: ${({ theme }) => theme.colors.primary.lightBlue};
+    color: ${({ theme }) => theme.colors.primary.marineBlue};
   }
 `;

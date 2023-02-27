@@ -7,7 +7,14 @@ export const ContainerStyle = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 2em 5em;
-  // gap: 4em;
+
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5em;
+  }
 
   nav {
     display: flex;

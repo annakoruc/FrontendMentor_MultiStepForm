@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../config/paths";
+import { AppContext } from "../../store/AppContext";
 import { FourthStepStyle } from "../../styles/steps";
 
 export const FourthStep = (props) => {
+  const ctx = useContext(AppContext);
+
   useEffect(() => {
     props.stepTitle(
       "Finishing up",
@@ -11,30 +14,47 @@ export const FourthStep = (props) => {
     );
   }, []);
 
+  console.log(ctx);
+
+  const addOnsCost = ctx.addOns.reduce((a, b) => a + b.cost, 0);
+
+  const totalCost = Number(ctx.cost) + addOnsCost;
+
+  console.log(addOnsCost, totalCost, ctx.addOns);
+
   return (
     <FourthStepStyle>
       <main>
         <section className="plan">
           <div>
-            <h3>Arcade(Monthly)</h3>
+            <h3>{ctx.plan}</h3>
             <Link to={paths.secound}>Change</Link>
           </div>
-          <p>$9/mo</p>
+          <p>
+            ${ctx.cost}
+            {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+          </p>
         </section>
-        <section className="add-ons">
-          <div>
-            <p>Online service</p>
-            <p>+$1/mo</p>
-          </div>
-          <div>
-            <p>Larger storage</p>
-            <p>+$2/mo</p>
-          </div>
-        </section>
+        {ctx.addOns.length !== 0 && (
+          <section className="add-ons">
+            {ctx.addOns.map((element) => (
+              <div key={element.title}>
+                <p>{element.title}</p>
+                <p>
+                  ${element.cost}
+                  {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+                </p>
+              </div>
+            ))}
+          </section>
+        )}
       </main>
       <div className="result">
-        <h4>Total(per month)</h4>
-        <p>+$12/mo</p>
+        <h4>Total{ctx.isMonthlyCtx ? "(per month)" : "(per year)"}</h4>
+        <p>
+          ${totalCost}
+          {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+        </p>
       </div>
     </FourthStepStyle>
   );

@@ -1,6 +1,7 @@
+import { Form } from "formik";
 import styled from "styled-components";
 
-export const ThirdStepStyle = styled.div`
+export const ThirdStepStyle = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 100%;

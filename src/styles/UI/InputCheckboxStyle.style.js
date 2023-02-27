@@ -42,7 +42,7 @@ export const InputCheckboxStyle = styled.label`
     color: ${({ theme }) => theme.colors.primary.purpliskBlue};
   }
 
-  :active {
+  :checked {
     background: ${({ theme }) => theme.colors.backgroundColor};
     border: 1.5px solid ${({ theme }) => theme.colors.primary.marineBlue};
   }

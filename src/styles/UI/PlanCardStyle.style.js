@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlanCardStyle = styled.div`
+export const PlanCardStyle = styled.button`
   height: 150px;
   width: 30%;
 
@@ -9,6 +9,7 @@ export const PlanCardStyle = styled.div`
   justify-content: space-between;
   padding: 1em;
 
+  background: none;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 0.5em;
 
@@ -26,7 +27,7 @@ export const PlanCardStyle = styled.div`
     width: 40px;
   }
 
-  :active {
+  :focus {
     background: ${({ theme }) => theme.colors.backgroundColor};
     border: 1.5px solid ${({ theme }) => theme.colors.primary.marineBlue};
   }

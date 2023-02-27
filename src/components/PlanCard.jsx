@@ -3,7 +3,7 @@ import { PlanCardStyle } from "../styles/UI";
 
 export const PlanCard = (props) => {
   return (
-    <PlanCardStyle>
+    <PlanCardStyle onClick={props.onClick}>
       <img src={props.img} />
       <div>
         <p className="title">{props.plan}</p>

@@ -7,5 +7,12 @@ export const ThirdStepStyle = styled(Form)`
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  gap: 1em;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+  }
 `;

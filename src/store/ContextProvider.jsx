@@ -1,23 +1,6 @@
 import React, { useState } from "react";
 import { AppContext } from "./AppContext";
 
-const values = {
-  name: "",
-  email: "",
-  phone: "",
-  setName: () => {},
-  setEmail: () => {},
-  setPhone: () => {},
-  isMonthly: true,
-  plan: "",
-  cost: "",
-  setIsMonthy: () => {},
-  setPlan: () => {},
-  setCost: () => {},
-  addOns: {},
-  setAddOns: () => {},
-};
-
 export const ContextProvider = (props) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");

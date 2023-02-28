@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
     background: ${({ theme }) => theme.colors.backgroundColor};
     font-family: Ubuntu, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     hight: 100%
    
 }
@@ -27,7 +27,7 @@ button, a {
   background: ${({ theme }) => theme.colors.primary.marineBlue};
   color: ${({ theme }) => theme.colors.white};
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   padding: 1em 2em;
   border-radius: 0.5em;
@@ -40,6 +40,22 @@ button, a {
   &:hover {
     background: ${({ theme }) => theme.colors.primary.purpliskBlue};
   }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  
+  .back-button {
+    background: none;
+    color: ${({ theme }) => theme.colors.coolGray};
+    padding: 0;
+    width: 100px;
+    text-align: center;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary.marineBlue}
+    }
 }
 `;
 

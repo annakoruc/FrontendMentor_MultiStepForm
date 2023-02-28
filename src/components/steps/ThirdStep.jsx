@@ -1,6 +1,6 @@
-import { Field, FieldArray, Form, Formik } from "formik";
+import { FieldArray, Formik } from "formik";
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { paths } from "../../config/paths";
 import { AppContext } from "../../store/AppContext";
 import { ThirdStepStyle } from "../../styles/steps";
@@ -28,8 +28,8 @@ const addOnsList = [
 ];
 
 export const ThirdStep = (props) => {
-  const { isMonthlyCtx, setAddOns, addOns } = useContext(AppContext);
-  const ctx = useContext(AppContext);
+  const navigate = useNavigate();
+  const { isMonthlyCtx, setAddOns } = useContext(AppContext);
 
   useEffect(() => {
     props.stepTitle(
@@ -39,24 +39,13 @@ export const ThirdStep = (props) => {
     );
   }, []);
 
-  const checkboxHandler = (event) => {
-    const addOn = event.target;
-
-    if (addOn.checked) {
-      setAddOns([...addOns, addOn.value]);
-    }
-    // if (!event.target.checked) {
-    //   setAddOns((prev) => [...prev.filter((item) => item.name)]);
-    // }
-  };
-
   return (
     <Formik
       initialValues={{ addOns: [] }}
       onSubmit={(values) => {
         console.log(values);
         setAddOns(values.addOns);
-        console.log(ctx);
+        navigate(paths.fourth);
       }}
     >
       {({ values }) => (
@@ -104,7 +93,16 @@ export const ThirdStep = (props) => {
               </ul>
             )}
           />
-          <button type="submit">Button</button>
+          <div className="buttons">
+            <button
+              className="back-button"
+              onClick={() => navigate(paths.secound)}
+            >
+              Go Back
+            </button>
+
+            <button type="submit">Next Step</button>
+          </div>
         </ThirdStepStyle>
       )}
     </Formik>

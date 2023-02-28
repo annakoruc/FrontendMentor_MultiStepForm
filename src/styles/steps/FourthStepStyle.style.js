@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const FourthStepStyle = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   main {
     background: ${({ theme }) => theme.colors.backgroundColor};
     padding: 1.5em;

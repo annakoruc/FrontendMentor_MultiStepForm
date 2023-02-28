@@ -4,7 +4,7 @@ export const InputStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
   width: 100%;
 
   input {

@@ -9,6 +9,7 @@ import arcade from "../../assets/images/icon-arcade.svg";
 import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 import { AppContext } from "../../store/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
   { img: arcade, title: "Arcade", costMonth: 9, costYear: 90 },
@@ -17,7 +18,8 @@ const plans = [
 ];
 
 export const SecoundStep = (props) => {
-  const ctx = useContext(AppContext);
+  const navigate = useNavigate();
+
   const { isMonthlyCtx, setIsMonthlyCtx, setPlan, setCost } =
     useContext(AppContext);
 
@@ -43,7 +45,6 @@ export const SecoundStep = (props) => {
             onClick={() => {
               setPlan(plan.title);
               setCost(isMonthlyCtx ? plan.costMonth : plan.costYear);
-              console.log(ctx);
             }}
           />
         ))}
@@ -52,6 +53,15 @@ export const SecoundStep = (props) => {
         <p className={isMonthlyCtx ? "active" : undefined}>Monthly</p>
         <ToggleSwitch onChange={() => setIsMonthlyCtx(!isMonthlyCtx)} />
         <p className={!isMonthlyCtx ? "active" : undefined}>Yearly</p>
+      </div>
+      <div className="buttons">
+        <button className="back-button" onClick={() => navigate(paths.home)}>
+          Go Back
+        </button>
+
+        <button type="submit" onClick={() => navigate(paths.third)}>
+          Next Step
+        </button>
       </div>
     </SecoundStepStyle>
   );

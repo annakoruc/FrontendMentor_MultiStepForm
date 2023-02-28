@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const SecoundStepStyle = styled.div`
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   .cards {
     display: flex;

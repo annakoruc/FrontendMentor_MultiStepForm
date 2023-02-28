@@ -11,7 +11,6 @@ export const InputCheckboxStyle = styled.label`
   grid-template-columns: 10% 75% 15%;
   justify-items: start;
   align-items: center;
-  //   justify-content: stretch;
   padding: 1em;
 
   h3 {

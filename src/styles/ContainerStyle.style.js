@@ -7,14 +7,7 @@ export const ContainerStyle = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 2em 5em;
-
-
-  .forms {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 5em;
-  }
+  gap: 3em;
 
   nav {
     display: flex;
@@ -26,31 +19,5 @@ export const ContainerStyle = styled.div`
     font-size: 16px;
     font-weight: normal;
     color: ${({ theme }) => theme.colors.coolGray};
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    // align-content: flex-end;
-
-    a {
-      align-self: flex-end;
-    }
-    
-    
-    .back-button {
-      background: none;
-      color: ${({ theme }) => theme.colors.coolGray};
-      padding: 0;
-      width: 100px;
-      text-align: center;
-  
-      &:hover {
-        color: ${({ theme }) => theme.colors.primary.marineBlue}
-      }
-  }
-
-  }
-
   }
 `;

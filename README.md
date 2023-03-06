@@ -16,8 +16,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/annakoruc/FrontendMentor_MultiStepForm)
-- Live Site URL: [Add live site URL here](https://dreamy-macaron-65582e.netlify.app/)
+- Solution URL: [GutHub](https://github.com/annakoruc/FrontendMentor_MultiStepForm)
+- Live Site URL: [Netlify](https://dreamy-macaron-65582e.netlify.app/)
 
 ### Built with
 

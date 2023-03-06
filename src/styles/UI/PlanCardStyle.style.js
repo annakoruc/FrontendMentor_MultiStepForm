@@ -1,33 +1,55 @@
 import styled from "styled-components";
 
-export const PlanCardStyle = styled.button`
+export const PlanCardStyle = styled.div`
   height: 150px;
   width: 30%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1em;
+  label {
+    height: 100%;
+    width: 100%;
 
-  background: none;
-  border: 1px solid ${({ theme }) => theme.colors.lightGray};
-  border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
 
-  .title {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary.marineBlue};
+    background: none;
+    border: 1px solid ${({ theme }) => theme.colors.lightGray};
+    border-radius: 0.5em;
+
+    :hover {
+      background: ${({ theme }) => theme.colors.backgroundColor};
+      border: 1.5px solid ${({ theme }) => theme.colors.primary.marineBlue};
+    }
+
+    .title {
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary.marineBlue};
+    }
+
+    p {
+      color: ${({ theme }) => theme.colors.coolGray};
+    }
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .free-months {
+      color: ${({ theme }) => theme.colors.primary.marineBlue};
+    }
   }
 
-  p {
-    color: ${({ theme }) => theme.colors.coolGray};
+  // // HIDE RADIO
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 150px;
+    width: 15%;
   }
 
-  img {
-    height: 40px;
-    width: 40px;
-  }
-
-  :focus {
+  input[type="radio"]:checked + label {
     background: ${({ theme }) => theme.colors.backgroundColor};
     border: 1.5px solid ${({ theme }) => theme.colors.primary.marineBlue};
   }

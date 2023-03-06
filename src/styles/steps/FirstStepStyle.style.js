@@ -8,7 +8,7 @@ export const FirstStepStyle = styled(Form)`
   flex-direction: column;
   justify-content: space-between;
 
-  div {
-    margin-bottom: 1em;
+  label {
+    margin-bottom: 1.5em;
   }
 `;

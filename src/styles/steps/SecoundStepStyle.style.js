@@ -1,6 +1,7 @@
+import { Form } from "formik";
 import styled from "styled-components";
 
-export const SecoundStepStyle = styled.div`
+export const SecoundStepStyle = styled(Form)`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -30,5 +31,9 @@ export const SecoundStepStyle = styled.div`
       color: ${({ theme }) => theme.colors.primary.marineBlue};
       font-weight: bold;
     }
+  }
+
+  .error {
+    color: ${({ theme }) => theme.colors.primary.strawberryRed};
   }
 `;

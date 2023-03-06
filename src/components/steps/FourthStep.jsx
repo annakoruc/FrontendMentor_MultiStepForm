@@ -15,11 +15,11 @@ export const FourthStep = (props) => {
     );
   }, []);
 
-  console.log(ctx);
+  console.log("ctx", ctx);
 
   const addOnsCost = ctx.addOns.reduce((a, b) => a + b.cost, 0);
 
-  const totalCost = Number(ctx.cost) + addOnsCost;
+  const totalCost = Number(ctx.costCtx) + addOnsCost;
 
   console.log(addOnsCost, totalCost, ctx.addOns);
 
@@ -29,12 +29,12 @@ export const FourthStep = (props) => {
         <main>
           <section className="plan">
             <div>
-              <h3>{ctx.plan}</h3>
+              <h3>{ctx.planCtx}</h3>
               <Link to={paths.secound}>Change</Link>
             </div>
             <p>
-              ${ctx.cost}
-              {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+              ${ctx.costCtx}
+              {!ctx.isYearlyCtx ? "/mo" : "/yr"}
             </p>
           </section>
           {ctx.addOns.length !== 0 && (
@@ -44,7 +44,7 @@ export const FourthStep = (props) => {
                   <p>{element.title}</p>
                   <p>
                     ${element.cost}
-                    {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+                    {!ctx.isYearlyCtx ? "/mo" : "/yr"}
                   </p>
                 </div>
               ))}
@@ -52,10 +52,10 @@ export const FourthStep = (props) => {
           )}
         </main>
         <div className="result">
-          <h4>Total{ctx.isMonthlyCtx ? "(per month)" : "(per year)"}</h4>
+          <h4>Total{ctx.isYearlyCtx ? "(per month)" : "(per year)"}</h4>
           <p>
             ${totalCost}
-            {ctx.isMonthlyCtx ? "/mo" : "/yr"}
+            {!ctx.isYearlyCtx ? "/mo" : "/yr"}
           </p>
         </div>
       </div>

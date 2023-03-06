@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const InputStyle = styled.div`
+export const InputStyle = styled.label`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  // margin-bottom: 1em;
-  width: 100%;
+  color: ${({ theme }) => theme.colors.primary.marineBlue};
+  font-weight: medium;
 
   input {
     background: ${({ theme }) => theme.colors.white};
@@ -21,8 +21,16 @@ export const InputStyle = styled.div`
     }
   }
 
-  label {
-    color: ${({ theme }) => theme.colors.primary.marineBlue};
-    font-weight: medium;
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .error-input {
+    border: 1px solid ${({ theme }) => theme.colors.primary.strawberryRed};
+  }
+
+  .error-text {
+    color: ${({ theme }) => theme.colors.primary.strawberryRed};
   }
 `;

@@ -6,9 +6,9 @@ export const ContextProvider = (props) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
 
-  const [isMonthlyCtx, setIsMonthlyCtx] = useState(true);
-  const [plan, setPlan] = useState("");
-  const [cost, setCost] = useState("");
+  const [isYearlyCtx, setIsYearlyCtx] = useState(false);
+  const [planCtx, setPlan] = useState("");
+  const [costCtx, setCost] = useState("");
 
   const [addOns, setAddOns] = useState([]);
 
@@ -18,14 +18,14 @@ export const ContextProvider = (props) => {
         userName,
         userEmail,
         userPhone,
-        isMonthlyCtx,
-        plan,
-        cost,
+        isYearlyCtx,
+        planCtx,
+        costCtx,
         addOns,
         setUserName,
         setUserEmail,
         setUserPhone,
-        setIsMonthlyCtx,
+        setIsYearlyCtx,
         setPlan,
         setCost,
         setAddOns,

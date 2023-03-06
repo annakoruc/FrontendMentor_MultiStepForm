@@ -29,7 +29,7 @@ const addOnsList = [
 
 export const ThirdStep = (props) => {
   const navigate = useNavigate();
-  const { isMonthlyCtx, setAddOns } = useContext(AppContext);
+  const { isYearlyCtx, setAddOns } = useContext(AppContext);
 
   useEffect(() => {
     props.stepTitle(
@@ -60,7 +60,7 @@ export const ThirdStep = (props) => {
                       key={element.title}
                       text={element.text}
                       cost={
-                        isMonthlyCtx
+                        !isYearlyCtx
                           ? `+$${element.costMonth}/mo`
                           : `+$${element.costYear}/yr`
                       }
@@ -70,7 +70,7 @@ export const ThirdStep = (props) => {
                         if (e.target.checked) {
                           push({
                             title: element.title,
-                            cost: isMonthlyCtx
+                            cost: !isYearlyCtx
                               ? element.costMonth
                               : element.costYear,
                           });

@@ -8,6 +8,7 @@ import { AppContext } from "../../store/AppContext";
 import { Input } from "../UI";
 
 import { FirstStepStyle } from "../../styles/steps";
+import { UserDataSchema } from "../../formik/schemes/UserDataSchema";
 
 export const FirstStep = (props) => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ export const FirstStep = (props) => {
         console.log(userName, userEmail, userPhone);
         navigate(paths.secound);
       }}
+      validationSchema={UserDataSchema}
     >
       {(props) => (
         <FirstStepStyle>
@@ -50,24 +52,31 @@ export const FirstStep = (props) => {
               onChange={props.handleChange}
               onBlur={props.handleBlur}
               value={props.values.name}
+              errors={props.errors.name}
+              touched={props.touched.name}
             >
               Name
             </Input>
+
             <Input
               id="email"
               placeholder="e.g. stephenking@lorem.com"
               onChange={props.handleChange}
               onBlur={props.handleBlur}
               value={props.values.email}
+              errors={props.errors.email}
+              touched={props.touched.email}
             >
               Email Address
             </Input>
             <Input
               id="phone"
-              placeholder="e.g. +1 234 567 890"
+              placeholder="e.g. 234 567 890"
               onChange={props.handleChange}
               onBlur={props.handleBlur}
               value={props.values.phone}
+              errors={props.errors.phone}
+              touched={props.touched.phone}
             >
               Phone Number
             </Input>

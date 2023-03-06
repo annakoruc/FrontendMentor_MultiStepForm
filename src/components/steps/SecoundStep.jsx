@@ -10,6 +10,8 @@ import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 import { AppContext } from "../../store/AppContext";
 import { useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import { PlanSchema } from "../../formik/schemes/PlanSchema";
 
 const plans = [
   { img: arcade, title: "Arcade", costMonth: 9, costYear: 90 },
@@ -20,7 +22,7 @@ const plans = [
 export const SecoundStep = (props) => {
   const navigate = useNavigate();
 
-  const { isMonthlyCtx, setIsMonthlyCtx, setPlan, setCost } =
+  const { isYearlyCtx, setIsYearlyCtx, planCtx, setPlan, costCtx, setCost } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -32,37 +34,64 @@ export const SecoundStep = (props) => {
   }, []);
 
   return (
-    <SecoundStepStyle>
-      <div className="cards">
-        {plans.map((plan) => (
-          <PlanCard
-            key={plan.title}
-            img={plan.img}
-            plan={plan.title}
-            cost={`$${
-              isMonthlyCtx ? plan.costMonth + "/mo" : plan.costYear + "/yr"
-            }`}
-            onClick={() => {
-              setPlan(plan.title);
-              setCost(isMonthlyCtx ? plan.costMonth : plan.costYear);
-            }}
-          />
-        ))}
-      </div>
-      <div className="toggle">
-        <p className={isMonthlyCtx ? "active" : undefined}>Monthly</p>
-        <ToggleSwitch onChange={() => setIsMonthlyCtx(!isMonthlyCtx)} />
-        <p className={!isMonthlyCtx ? "active" : undefined}>Yearly</p>
-      </div>
-      <div className="buttons">
-        <button className="back-button" onClick={() => navigate(paths.home)}>
-          Go Back
-        </button>
+    <Formik
+      initialValues={{
+        plan: planCtx,
+      }}
+      onSubmit={(values) => {
+        console.log(values);
+        setPlan(values.plan);
 
-        <button type="submit" onClick={() => navigate(paths.third)}>
-          Next Step
-        </button>
-      </div>
-    </SecoundStepStyle>
+        const planObject = plans.find((obj) => obj.title === values.plan);
+
+        setCost(isYearlyCtx ? planObject.costYear : planObject.costMonth);
+        navigate(paths.third);
+      }}
+      validationSchema={PlanSchema}
+    >
+      {(props) => (
+        <SecoundStepStyle>
+          <div role="group" className="cards" aria-labelledby="my-radio-group">
+            {plans.map((plan) => (
+              <PlanCard
+                key={plan.title}
+                name="plan"
+                img={plan.img}
+                title={plan.title}
+                cost={`$${
+                  !isYearlyCtx ? plan.costMonth + "/mo" : plan.costYear + "/yr"
+                }`}
+                onChange={props.handleChange}
+                onBlur={props.handleBlur}
+                value={plan.title}
+                className={props.values.checked ? "active" : ""}
+              />
+            ))}
+          </div>
+          <div className="toggle">
+            <p className={!isYearlyCtx ? "active" : undefined}>Monthly</p>
+            <ToggleSwitch
+              name="isYearly"
+              onChange={() => {
+                setIsYearlyCtx(!isYearlyCtx);
+              }}
+              onBlur={props.handleBlur}
+              checked={isYearlyCtx}
+            />
+            <p className={isYearlyCtx ? "active" : undefined}>Yearly</p>
+          </div>
+          <p className="error">{props.errors.plan}</p>
+          <div className="buttons">
+            <button
+              className="back-button"
+              onClick={() => navigate(paths.home)}
+            >
+              Go Back
+            </button>
+            <button type="submit">Next Step</button>
+          </div>
+        </SecoundStepStyle>
+      )}
+    </Formik>
   );
 };

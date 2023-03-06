@@ -16,22 +16,10 @@ import { GlobalStyles, theme } from "./styles/Global";
 
 const App = () => {
   const [stepTitle, setStepTitile] = useState({});
-  // const [value, setValue] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: 0,
-  //   plan: "",
-  //   isMonthly: true,
-  //   addOns: {},
-  // });
 
   const stepTitleHandler = (title, text, path) => {
     setStepTitile({ title: title, text: text, path: path });
   };
-
-  // const setValueHandler = (name, email, phone) => {
-  //   setValue({ ...value, name: name, email: email, phone: phone });
-  // };
 
   return (
     <ContextProvider>

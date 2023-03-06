@@ -81,7 +81,7 @@ export const FirstStep = (props) => {
               Phone Number
             </Input>
           </div>
-          <button type="submit">Confirm</button>
+          <button type="submit">Next Step</button>
         </FirstStepStyle>
       )}
     </Formik>

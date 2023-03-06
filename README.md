@@ -2,6 +2,9 @@
 
 This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+![Capture](https://user-images.githubusercontent.com/95089940/223124675-6f0647ef-317e-4794-8358-369b74a8f625.PNG)
+
+
 ### The challenge
 
 Users should be able to:
